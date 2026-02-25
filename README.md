@@ -1,4 +1,4 @@
-# Expense App
+# Fuck Vercel
 
 A full-stack expense tracking app built with **Vite + React** — no Next.js. Fast builds, type-safe APIs, and deploys to the edge.
 
