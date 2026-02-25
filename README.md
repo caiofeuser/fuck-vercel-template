@@ -44,6 +44,7 @@ Create a `.dev.vars` file for local development (Wrangler):
 ```env
 DATABASE_URL=postgresql://user:pass@host/db?sslmode=require
 ```
+*Remeber to add it in the cloudflare dashboard or use `npx wrangler secret put DATABASE_URL`
 
 ### Database
 
