@@ -37,22 +37,25 @@ A full-stack expense tracking app built with **Vite + React** — no Next.js. Fa
 pnpm install
 ```
 
-### Environment
+### Database Setup
 
-Create a `.dev.vars` file for local development (Wrangler):
+1. **Create a PostgreSQL database** on [Neon](https://neon.tech) — sign up, create a project, and copy the connection string.
+
+2. **Set `DATABASE_URL`** — create a `.dev.vars` file for local development (Wrangler loads it automatically):
 
 ```env
 DATABASE_URL=postgresql://user:pass@host/db?sslmode=require
 ```
-*Remeber to add it in the cloudflare dashboard or use `npx wrangler secret put DATABASE_URL`
 
-### Database
+For production, use Cloudflare secrets: `wrangler secret put DATABASE_URL`
+
+3. **Run migrations first** — the app needs tables to exist before it can run:
 
 ```bash
-# Generate migrations
+# Generate migrations (when you change db/schema.ts)
 pnpm db:generate
 
-# Run migrations
+# Run migrations — do this before starting the app
 pnpm db:migrate
 ```
 

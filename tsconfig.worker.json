@@ -10,27 +10,3 @@
 	},
 	"include": ["worker", "worker-configuration.d.ts"]
 }
-
-//Configure your Worker to send messages to this queue:
-
-// {
-//   "queues": {
-//     "producers": [
-//       {
-//         "queue": "ai-extraction",
-//         "binding": "ai_extraction"
-//       }
-//     ]
-//   }
-// }
-// Configure your Worker to consume messages from this queue:
-
-// {
-//   "queues": {
-//     "consumers": [
-//       {
-//         "queue": "ai-extraction"
-//       }
-//     ]
-//   }
-// }
