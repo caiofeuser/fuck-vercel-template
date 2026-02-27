@@ -10,13 +10,17 @@ import {
 } from "@/components/ui/card"
 import { trpc } from "@/router"
 import "@/styles/index.css"
+import { useUser } from "@clerk/clerk-react"
 import { ArrowLeft, Database, Loader2 } from "lucide-react"
 
-export const Route = createFileRoute("/products")({
+export const Route = createFileRoute("/products/")({
   component: ProductsPage,
 })
 
 function ProductsPage() {
+  const { user } = useUser()
+  console.log('useUser() in the frontend:', user)
+
   const { data, isLoading, isError, error } = useQuery({
     ...trpc.products.list.queryOptions(),
   })
@@ -74,7 +78,10 @@ function ProductsPage() {
             ) : (
               <div className="space-y-4">
                 {data.map((product) => (
-                  <Card key={product.id} className="border-l-4 border-l-primary">
+                  <Card
+                    key={product.id}
+                    className="border-l-4 border-l-primary"
+                  >
                     <CardHeader className="pb-2">
                       <CardTitle className="text-lg">{product.name}</CardTitle>
                       {product.description && (

@@ -60,6 +60,7 @@ const TECHNOLOGIES = [
 }>
 
 function Index() {
+
   return (
     <div className="min-h-[calc(100vh-80px)]">
       <div className="mx-auto max-w-4xl space-y-12 px-4 py-12">

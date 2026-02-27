@@ -1,8 +1,9 @@
-import { t } from "@worker/trpc/trpc";
+import { t } from "@worker/trpc";
 import { z } from "zod";
+import { publicProcedure } from "../procedures";
 
 export const DummyRouter = t.router({
-	getData: t.procedure
+	getData: publicProcedure
 		.input(z.object({ id: z.string() }))
 		.query(async ({ input }) => {
 			return {

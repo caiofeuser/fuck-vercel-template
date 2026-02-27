@@ -77,6 +77,10 @@ pnpm build
 pnpm deploy
 ```
 
+### Auth (Clerk)
+
+See [docs/CLERK_SETUP.md](docs/CLERK_SETUP.md) for step-by-step Clerk integration.
+
 ## Scripts
 
 | Script        | Description                    |

@@ -4,7 +4,8 @@ import { drizzle } from "drizzle-orm/neon-http";
 import { migrate } from "drizzle-orm/neon-http/migrator";
 
 config({
-	path: "./.dev.vars",
+	// path: "./.dev.vars",
+	path: "./.env",
 });
 
 const sql = neon(process.env.DATABASE_URL!);

@@ -12,10 +12,13 @@
 		"preview": "vite preview",
 		"deploy": "npm run build && wrangler deploy",
 		"cf-typegen": "wrangler types",
-		"db:generate": "drizzle-kit generate --dialect=postgresql --schema=./db/schema.ts ",
-		"db:migrate": "tsx ./db/migrate.ts"
+		"db:generate": "drizzle-kit generate",
+		"db:migrate": "tsx ./db/migrate.ts",
+		"db:push": "drizzle-kit push"
 	},
 	"dependencies": {
+		"@clerk/backend": "^2.32.1",
+		"@clerk/clerk-react": "^5.61.1",
 		"@neondatabase/serverless": "^1.0.2",
 		"@tailwindcss/vite": "^4.2.1",
 		"@tanstack/react-query": "^5.90.21",
