@@ -44,7 +44,7 @@ For **local development**, create `.dev.vars` in the project root (Wrangler load
 
 ```env
 DATABASE_URL=postgresql://user:pass@host/db?sslmode=require
-CLERK_SECRET_KEY=sk_test_xxxxxxxxxxxxxxxxxxxxxxxx
+CLERK_SECRET_KEY=your_clerk_secret_key
 ```
 
 For **production**, set the secret via Wrangler:
