@@ -79,7 +79,33 @@ pnpm deploy
 
 ### Auth (Clerk)
 
-See [docs/CLERK_SETUP.md](docs/CLERK_SETUP.md) for step-by-step Clerk integration.
+1. **Create a Clerk project** at [clerk.com](https://clerk.com) — sign up and create an application.
+
+2. **Get your keys** from the Clerk Dashboard → API Keys:
+   - **Publishable Key** (`pk_test_...` or `pk_live_...`) — for the frontend
+   - **Secret Key** (`sk_test_...` or `sk_live_...`) — for the worker backend
+
+3. **Add to env files** — the app uses two env sources:
+   - **`.env`** (Vite loads this for the frontend):
+     ```env
+     VITE_CLERK_PUBLISHABLE_KEY=pk_test_xxxxx
+     ```
+   - **`.dev.vars`** (Wrangler loads this for the worker locally):
+     ```env
+     CLERK_SECRET_KEY=sk_test_xxxxx
+     CLERK_WEBHOOK_SIGNING_SECRET=whsec_xxxxx
+     ```
+     The webhook secret is optional for sign-in only; it’s required if you want user sync to the DB (create/update/delete users in your `users` table).
+
+4. **Configure the webhook** (optional, for user sync):
+   - In Clerk Dashboard → Webhooks, add an endpoint: `https://your-api-url/webhooks/clerk`
+   - Subscribe to `user.created`, `user.updated`, `user.deleted`
+   - Copy the signing secret into `CLERK_WEBHOOK_SIGNING_SECRET` in `.dev.vars`
+
+5. **Run the app** — `pnpm dev`
+
+For production, set secrets via `wrangler secret put CLERK_SECRET_KEY` and `wrangler secret put CLERK_WEBHOOK_SIGNING_SECRET`.
+
 
 ## Scripts
 
